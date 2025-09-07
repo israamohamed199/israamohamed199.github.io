@@ -1,0 +1,16 @@
+{
+  "en": {
+    "welcome": "Welcome to my portfolio!",
+    "about": "About Me",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact Me"
+  },
+  "ar": {
+    "welcome": "مرحباً بك في موقعي!",
+    "about": "من أنا",
+    "services": "الخدمات",
+    "portfolio": "أعمالي",
+    "contact": "تواصل معي"
+  }
+}

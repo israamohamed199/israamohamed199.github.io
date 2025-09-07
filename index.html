@@ -1,103 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Israa Mohamed | Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<meta name="description" content="Portfolio of a graphic designer. Branding, packaging, social media & more.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav class="container">
-  <div class="logo">Israa.</div>
-  <div class="menu-toggle">☰</div>
-  <div class="nav-links">
-    <a href="#portfolio">Portfolio</a>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-    <a href="admin.html" style="margin-left:8px;background:#111;color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none">Admin</a>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="container">
-    <h1 class="hidden">Hi, I'm Israa Mohamed</h1>
-    <p class="hidden">Graphic Designer • Branding • Social Media</p>
-    <a class="cta hidden" href="#portfolio">View Work</a>
-  </div>
-</header>
-
-<section id="portfolio" class="section hidden">
-  <h2 class="section-title">Portfolio</h2>
-  <div id="gallery" class="container"></div>
-</section>
-
-<section id="about" class="section hidden">
-  <h2 class="section-title">About Me</h2>
-  <div class="about container">
-    <p>Hi! I'm a graphic designer focusing on brand identity, packaging and social campaigns. I create work that speaks locally and looks global.</p>
-  </div>
-</section>
-
-<section id="services" class="section hidden">
-  <h2 class="section-title">Services</h2>
-  <div class="services container">
-    <div class="service">Logo Design</div>
-    <div class="service">Brand Identity</div>
-    <div class="service">Social Media Kits</div>
-    <div class="service">Packaging Design</div>
-  </div>
-</section>
-
-<section id="contact" class="section hidden">
-  <h2 class="section-title">Contact</h2>
-  <div class="contact container">
-    <p>Send me a message — I usually reply within 24–48 hours.</p>
-    <form id="contactForm" method="POST" action="" onsubmit="submitForm(event)">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:700px;margin:14px auto">
-        <input name="name" placeholder="Your name" required style="padding:10px;border-radius:8px;border:1px solid #ddd">
-        <input id="emailInput" name="email" type="email" placeholder="Your email" required style="padding:10px;border-radius:8px;border:1px solid #ddd">
+  <header>
+    <nav>
+      <h1 id="welcome">Welcome to my portfolio!</h1>
+      <ul>
+        <li><a href="#about" id="about">About Me</a></li>
+        <li><a href="#services" id="services">Services</a></li>
+        <li><a href="#portfolio" id="portfolio">Portfolio</a></li>
+        <li><a href="#contact" id="contact">Contact Me</a></li>
+      </ul>
+      <div class="lang-switch">
+        <button onclick="changeLanguage('en')">🇬🇧 English</button>
+        <button onclick="changeLanguage('ar')">🇪🇬 عربي</button>
       </div>
-      <textarea name="message" rows="5" placeholder="Message" required style="width:100%;max-width:700px;margin:0 auto;display:block;padding:12px;border-radius:8px;border:1px solid #ddd"></textarea>
-      <div style="text-align:center;margin-top:12px">
-        <button type="submit" style="background:var(--gradient);color:#fff;padding:10px 18px;border-radius:8px;border:0;font-weight:700">Send Message</button>
-      </div>
-    </form>
-    <p style="margin-top:12px">Or reach me at <a id="contact-email" href="mailto:israa@example.com">israa@example.com</a></p>
-    <p id="socials" style="margin-top:8px"></p>
-  </div>
-</section>
-
-<footer class="hidden">
-  <div class="container">© 2025 Israa Mohamed — All rights reserved</div>
-</footer>
-
-<script src="config.js"></script>
-<script src="script.js"></script>
-<script>
-// contact form handler — uses Formspree (set in config.js)
-async function submitForm(e){
-  e.preventDefault();
-  const cfg = window.SITE_CONFIG || {};
-  const form = document.getElementById('contactForm');
-  const data = new FormData(form);
-  const url = cfg.formEndpoint || '';
-  if(!url){
-    alert('Contact endpoint not set. Edit config.js and add your Formspree endpoint.');
-    return;
-  }
-  try{
-    const res = await fetch(url, { method:'POST', body: data, headers: { 'Accept':'application/json' } });
-    if(res.ok){ alert('Message sent — I will reply soon!'); form.reset(); }
-    else{ alert('Sending failed. Please try email: '+(cfg.email||'israa@example.com')); }
-  }catch(err){ alert('Network error — try again later.'); console.error(err); }
-}
-
-// navbar mobile toggle
-document.querySelector('.menu-toggle').addEventListener('click', ()=>{
-  document.querySelector('.nav-links').classList.toggle('show');
-});
-</script>
+    </nav>
+  </header>
+  <main>
+    <section id="about-section">
+      <h2 id="about-title">About Me</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </section>
+    <section id="services-section">
+      <h2 id="services-title">Services</h2>
+      <p>Here are the services I offer.</p>
+    </section>
+    <section id="portfolio-section">
+      <h2 id="portfolio-title">Portfolio</h2>
+      <p>My work gallery will be here.</p>
+    </section>
+    <section id="contact-section">
+      <h2 id="contact-title">Contact Me</h2>
+      <form id="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+  <script src="script.js"></script>
 </body>
 </html>
