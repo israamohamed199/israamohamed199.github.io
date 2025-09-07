@@ -1,179 +1,103 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="robots" content="noindex,nofollow" />
-  <title>[Your Name] — Portfolio</title>
-  <!--
-    Simple single-file portfolio template for GitHub Pages (or any static host).
-    How to customize:
-      1. Replace [Your Name], [Short tagline], and other text nodes below.
-      2. Add your project images into the /assets/ folder and update the <img> src values.
-      3. To deploy on GitHub Pages: create a new repo, push this file as index.html to the repo (or to gh-pages branch) and enable Pages in repo settings.
-      4. Note: GitHub Pages sites are public. For true privacy consider private platforms (Behance, Notion private page) or a paid host with password protection.
-  -->
-  <style>
-    :root{--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2;--accent:#ff6b6b}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,#071018 0%,var(--bg) 100%);color:#e6eef6;line-height:1.45}
-    .container{max-width:1100px;margin:0 auto;padding:28px}
-    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
-    .brand{display:flex;gap:14px;align-items:center}
-    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#1f2937,#111827);display:flex;align-items:center;justify-content:center;font-weight:700}
-    h1{font-size:28px;margin:0}
-    p.lead{color:var(--muted);margin:6px 0 0}
-    .hero{display:flex;gap:28px;align-items:center;flex-wrap:wrap;padding:28px 0}
-    .hero-left{flex:1;min-width:260px}
-    .hero-right{flex:1;min-width:260px}
-    .cta{display:inline-block;padding:10px 18px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:22px}
-    .card{background:var(--card);padding:12px;border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(2,6,23,0.6);cursor:pointer;transition:transform .18s}
-    .card img{width:100%;height:160px;object-fit:cover;border-radius:10px}
-    .card h3{margin:10px 0 6px;font-size:16px}
-    .card p{margin:0;color:var(--muted);font-size:13px}
-    footer{padding:28px 0;color:var(--muted);font-size:14px}
-    @media(min-width:900px){h1{font-size:36px}}
-    /* modal */
-    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:20px}
-    .modal.open{display:flex}
-    .modal .inner{max-width:980px;width:100%;background:#061021;border-radius:12px;padding:16px}
-    .modal img{width:100%;height:auto;border-radius:10px}
-    .meta{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
-    .small{font-size:13px;color:var(--muted)}
-    /* contact */
-    .contact{background:#071827;padding:18px;border-radius:12px}
-    input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    @media(max-width:600px){.row{grid-template-columns:1fr}}
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Israa Mohamed | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<meta name="description" content="Portfolio of a graphic designer. Branding, packaging, social media & more.">
 </head>
 <body>
+<nav class="container">
+  <div class="logo">Israa.</div>
+  <div class="menu-toggle">☰</div>
+  <div class="nav-links">
+    <a href="#portfolio">Portfolio</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+    <a href="admin.html" style="margin-left:8px;background:#111;color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none">Admin</a>
+  </div>
+</nav>
+
+<header class="hero">
   <div class="container">
-    <header>
-      <div class="brand">
-        <div class="logo">YN</div>
-        <div>
-          <h1>[Your Name]</h1>
-          <p class="lead">[Short tagline — e.g. "Graphic designer & visual storyteller"]</p>
-        </div>
-      </div>
-      <nav>
-        <a href="#portfolio" style="color:var(--muted);text-decoration:none;margin-right:12px">Portfolio</a>
-        <a href="#contact" style="color:var(--muted);text-decoration:none">Contact</a>
-      </nav>
-    </header>
-
-    <section class="hero">
-      <div class="hero-left">
-        <h2 style="margin:0 0 8px">Design that tells a story.</h2>
-        <p class="lead">I craft brand identities, packaging, and digital art. Browse selected works below.</p>
-        <a class="cta" href="#portfolio">Explore my work</a>
-      </div>
-      <div class="hero-right">
-        <!-- replace the image src with your showcase image -->
-        <img src="https://via.placeholder.com/700x420.png?text=Showcase+Image" alt="showcase" style="width:100%;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.6)">
-      </div>
-    </section>
-
-    <section id="portfolio">
-      <h3 style="margin-top:18px">Selected Projects</h3>
-      <div class="grid" id="gallery">
-        <!-- Duplicate .card blocks and replace img src + text -->
-        <div class="card" data-title="Project One" data-desc="Branding & packaging" data-img="https://via.placeholder.com/1200x800.png?text=Project+1">
-          <img src="https://via.placeholder.com/800x600.png?text=Project+1" alt="Project 1">
-          <h3>Project One</h3>
-          <p>Branding & packaging</p>
-        </div>
-
-        <div class="card" data-title="Project Two" data-desc="Poster series" data-img="https://via.placeholder.com/1200x800.png?text=Project+2">
-          <img src="https://via.placeholder.com/800x600.png?text=Project+2" alt="Project 2">
-          <h3>Project Two</h3>
-          <p>Poster series</p>
-        </div>
-
-        <div class="card" data-title="Project Three" data-desc="Social media kit" data-img="https://via.placeholder.com/1200x800.png?text=Project+3">
-          <img src="https://via.placeholder.com/800x600.png?text=Project+3" alt="Project 3">
-          <h3>Project Three</h3>
-          <p>Social media kit</p>
-        </div>
-
-        <div class="card" data-title="Project Four" data-desc="Packaging" data-img="https://via.placeholder.com/1200x800.png?text=Project+4">
-          <img src="https://via.placeholder.com/800x600.png?text=Project+4" alt="Project 4">
-          <h3>Project Four</h3>
-          <p>Packaging design</p>
-        </div>
-      </div>
-    </section>
-
-    <section style="margin-top:28px;display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start">
-      <div>
-        <h3>Services</h3>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:12px">
-          <div class="card"><h3>Branding</h3><p class="small">Logo, identity systems</p></div>
-          <div class="card"><h3>Packaging</h3><p class="small">Structural + artwork</p></div>
-          <div class="card"><h3>Digital</h3><p class="small">Social kits & ads</p></div>
-        </div>
-      </div>
-      <aside>
-        <div style="background:linear-gradient(180deg,#081626,#041321);padding:12px;border-radius:12px">
-          <h3>About Me</h3>
-          <p class="small">I’m a graphic designer based in [City]. I specialize in brand identity and packaging with a focus on local visual language.</p>
-          <p class="small" style="margin-top:10px">Email: <a href="mailto:you@example.com" style="color:var(--accent)">you@example.com</a></p>
-        </div>
-      </aside>
-    </section>
-
-    <section id="contact" style="margin-top:28px">
-      <h3>Contact</h3>
-      <div class="contact" style="margin-top:12px">
-        <!-- Simple contact form using mailto (static) -->
-        <form id="contactForm" onsubmit="event.preventDefault();location.href='mailto:you@example.com?subject=Website%20Inquiry&body='+encodeURIComponent(document.getElementById('message').value)">
-          <div class="row">
-            <input placeholder="Your name" required>
-            <input placeholder="Your email" required>
-          </div>
-          <div style="margin-top:10px">
-            <textarea id="message" rows="4" placeholder="Your message" required></textarea>
-          </div>
-          <div style="margin-top:10px;display:flex;gap:8px;justify-content:flex-end">
-            <button type="submit" class="cta">Send message</button>
-          </div>
-        </form>
-      </div>
-    </section>
-
-    <footer style="margin-top:28px;display:flex;justify-content:space-between;align-items:center">
-      <div>© <span id="year"></span> [Your Name]. All rights reserved.</div>
-      <div style="color:var(--muted)">Made with ♥ — Static template</div>
-    </footer>
+    <h1 class="hidden">Hi, I'm Israa Mohamed</h1>
+    <p class="hidden">Graphic Designer • Branding • Social Media</p>
+    <a class="cta hidden" href="#portfolio">View Work</a>
   </div>
+</header>
 
-  <!-- modal viewer -->
-  <div id="modal" class="modal" aria-hidden="true" onclick="closeModal(event)">
-    <div class="inner" role="dialog" onclick="event.stopPropagation()">
-      <img id="modalImg" src="" alt="">
-      <div class="meta"><div><strong id="modalTitle"></strong><div class="small" id="modalDesc"></div></div><div><button onclick="closeModal()" style="background:none;border:0;color:var(--muted);cursor:pointer">Close</button></div></div>
-    </div>
+<section id="portfolio" class="section hidden">
+  <h2 class="section-title">Portfolio</h2>
+  <div id="gallery" class="container"></div>
+</section>
+
+<section id="about" class="section hidden">
+  <h2 class="section-title">About Me</h2>
+  <div class="about container">
+    <p>Hi! I'm a graphic designer focusing on brand identity, packaging and social campaigns. I create work that speaks locally and looks global.</p>
   </div>
+</section>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    // open modal on card click
-    document.querySelectorAll('.card[data-img]').forEach(c => c.addEventListener('click', ()=>{
-      const img = c.getAttribute('data-img');
-      const title = c.getAttribute('data-title');
-      const desc = c.getAttribute('data-desc');
-      document.getElementById('modalImg').src = img;
-      document.getElementById('modalTitle').textContent = title;
-      document.getElementById('modalDesc').textContent = desc;
-      document.getElementById('modal').classList.add('open');
-      document.getElementById('modal').setAttribute('aria-hidden','false');
-    }))
-    function closeModal(e){
-      document.getElementById('modal').classList.remove('open');
-      document.getElementById('modal').setAttribute('aria-hidden','true');
-    }
-  </script>
+<section id="services" class="section hidden">
+  <h2 class="section-title">Services</h2>
+  <div class="services container">
+    <div class="service">Logo Design</div>
+    <div class="service">Brand Identity</div>
+    <div class="service">Social Media Kits</div>
+    <div class="service">Packaging Design</div>
+  </div>
+</section>
+
+<section id="contact" class="section hidden">
+  <h2 class="section-title">Contact</h2>
+  <div class="contact container">
+    <p>Send me a message — I usually reply within 24–48 hours.</p>
+    <form id="contactForm" method="POST" action="" onsubmit="submitForm(event)">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:700px;margin:14px auto">
+        <input name="name" placeholder="Your name" required style="padding:10px;border-radius:8px;border:1px solid #ddd">
+        <input id="emailInput" name="email" type="email" placeholder="Your email" required style="padding:10px;border-radius:8px;border:1px solid #ddd">
+      </div>
+      <textarea name="message" rows="5" placeholder="Message" required style="width:100%;max-width:700px;margin:0 auto;display:block;padding:12px;border-radius:8px;border:1px solid #ddd"></textarea>
+      <div style="text-align:center;margin-top:12px">
+        <button type="submit" style="background:var(--gradient);color:#fff;padding:10px 18px;border-radius:8px;border:0;font-weight:700">Send Message</button>
+      </div>
+    </form>
+    <p style="margin-top:12px">Or reach me at <a id="contact-email" href="mailto:israa@example.com">israa@example.com</a></p>
+    <p id="socials" style="margin-top:8px"></p>
+  </div>
+</section>
+
+<footer class="hidden">
+  <div class="container">© 2025 Israa Mohamed — All rights reserved</div>
+</footer>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+<script>
+// contact form handler — uses Formspree (set in config.js)
+async function submitForm(e){
+  e.preventDefault();
+  const cfg = window.SITE_CONFIG || {};
+  const form = document.getElementById('contactForm');
+  const data = new FormData(form);
+  const url = cfg.formEndpoint || '';
+  if(!url){
+    alert('Contact endpoint not set. Edit config.js and add your Formspree endpoint.');
+    return;
+  }
+  try{
+    const res = await fetch(url, { method:'POST', body: data, headers: { 'Accept':'application/json' } });
+    if(res.ok){ alert('Message sent — I will reply soon!'); form.reset(); }
+    else{ alert('Sending failed. Please try email: '+(cfg.email||'israa@example.com')); }
+  }catch(err){ alert('Network error — try again later.'); console.error(err); }
+}
+
+// navbar mobile toggle
+document.querySelector('.menu-toggle').addEventListener('click', ()=>{
+  document.querySelector('.nav-links').classList.toggle('show');
+});
+</script>
 </body>
 </html>

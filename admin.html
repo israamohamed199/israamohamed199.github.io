@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin - Edit</title>
+<style>body{font-family:Arial;background:#f6f7fb;color:#111;padding:20px}h1{font-size:20px}a.button{display:inline-block;padding:10px 14px;background:#111;color:#fff;border-radius:8px;text-decoration:none;margin:6px 0}</style>
+</head>
+<body>
+  <h1>Admin shortcuts</h1>
+  <p>These links open the GitHub web editor for quick edits (you must be signed in & have repo permissions).</p>
+  <ul>
+    <li><a id="edit-config" class="button" target="_blank">Edit config.js</a></li>
+    <li><a id="edit-gallery" class="button" target="_blank">Edit gallery.json</a></li>
+    <li><a id="upload-files" class="button" target="_blank">Upload images (GitHub)</a></li>
+  </ul>
+  <p>How to use: upload images into <code>/gallery/</code>, then edit <code>gallery.json</code> to add file names or pairs.</p>
+<script>
+(async()=>{
+  const cfgResponse = await fetch('config.js').then(r=>r.text().catch(()=>null));
+  const repoOwner = (cfgResponse && cfgResponse.match(/repoOwner:\s*"([^"]+)"/)) ? cfgResponse.match(/repoOwner:\s*"([^"]+)"/)[1] : prompt('Enter your GitHub username');
+  const repoName = (cfgResponse && cfgResponse.match(/repoName:\s*"([^"]+)"/)) ? cfgResponse.match(/repoName:\s*"([^"]+)"/)[1] : prompt('Enter your repo name');
+  const base = `https://github.com/${repoOwner}/${repoName}`;
+  document.getElementById('edit-config').href = base + '/edit/main/config.js';
+  document.getElementById('edit-gallery').href = base + '/edit/main/gallery.json';
+  document.getElementById('upload-files').href = base + '/upload/main?path=gallery/';
+})();
+</script>
+</body>
+</html>
